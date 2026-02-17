@@ -11,9 +11,8 @@ elif [[ "$script_dir" == *node_modules* ]]; then
   # npm postinstall: walk up from node_modules
   root="${script_dir%%/node_modules/*}"
 else
-  echo "Usage: ./install.sh <project-root>"
-  echo "  Or install via npm: npm install --save-dev <git-url>"
-  exit 1
+  # npm prep phase (cache dir) — skip silently
+  exit 0
 fi
 
 mkdir -p "$root/.claude/skills/code-scan"
